@@ -9,7 +9,7 @@ Uso:
 
 O script busca artigos em diferentes subtemas de matéria escura para
 garantir diversidade de conteúdo no seu projeto de RAG, e baixa os PDFs
-para a pasta ../data/
+para a pasta ../data/raw/
 """
 
 import os
@@ -18,7 +18,7 @@ import feedparser
 import requests
 
 # Pasta onde os PDFs serão salvos
-PASTA_SAIDA = os.path.join("..", "data")
+PASTA_SAIDA = os.path.join("..", "data", "raw")
 os.makedirs(PASTA_SAIDA, exist_ok=True)
 
 BASE_URL = "https://export.arxiv.org/api/query"
