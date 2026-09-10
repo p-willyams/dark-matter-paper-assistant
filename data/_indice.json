@@ -1,0 +1,162 @@
+[
+  {
+    "subtema": "evidencias_observacionais",
+    "titulo": "Perfect Fluid Dark Matter",
+    "autores": "F. Rahaman, K. K. Nandi, A. Bhadra, M. Kalam, K. Chakraborty",
+    "publicado": "2010-09-18T17:34:44Z",
+    "arquivo": "..\\data\\1009.3572v2.pdf",
+    "resumo": "Taking the flat rotation curve as input and treating the matter content in the galactic halo region as perfect fluid, we obtain space time metric at the galactic halo region in the framework of general relativity. We find that the resultant metric is a non-relativistic-dark-matter-induced space-time embedded in a static Friedmann-Lemaître-Robertson-Walker universe. This means that the flat rotation curve not only leads to the existence of dark matter but also suggests the background geometry of the universe. The flat rotation curve and the demand that the dark matter be non-exotic together indicate a (nearly) flat universe as favored by the modern cosmological observations. We obtain the expressions for energy density and pressure of dark matter halo and consequently the equation of state of dark matter. Various other aspects of the solution are also analyzed."
+  },
+  {
+    "subtema": "evidencias_observacionais",
+    "titulo": "Understanding the shape and diversity of dwarf galaxy rotation curves in LCDM",
+    "autores": "J. I. Read, G. Iorio, O. Agertz, F. Fraternali",
+    "publicado": "2016-01-21T21:24:26Z",
+    "arquivo": "..\\data\\1601.05821v2.pdf",
+    "resumo": "The shape and diversity of dwarf galaxy rotation curves is at apparent odds with dark matter halos in a $Λ$ Cold Dark Matter ($Λ$CDM) cosmology. We use mock data from isolated dwarf galaxy simulations to show that this owes to three main effects. Firstly, stellar feedback heats dark matter, leading to a 'coreNFW' dark matter density profile with a slowly rising rotation curve. Secondly, if close to a recent starburst, large HI bubbles push the rotation curve out of equilibrium, deforming the rotation curve shape. Thirdly, when galaxies are viewed near face-on, their best fit inclination is biased high. This can lead to a very shallow rotation curve that falsely implies a large dark matter core. All three problems can be avoided, however, by a combination of improved mass models and a careful selection of target galaxies. Fitting our coreNFW model to mock rotation curve data, we show that we can recover the rotation curve shape, dark matter halo mass $M_{200}$ and concentration parameter $c$ within our quoted uncertainties.   We fit our coreNFW model to real data for four isolated dwarf irregulars, chosen to span a wide range of rotation curve shapes. We obtain an excellent fit for NGC 6822 and WLM, with tight constraints on $M_{200}$, and $c$ consistent with $Λ$CDM. However, IC 1613 and DDO 101 give a poor fit. For IC 1613, we show that this owes to disequilibria and its uncertain inclination $i$; for DDO 101, it owes to its uncertain distance $D$. If we assume $i_{\\rm IC1613} \\sim 15^\\circ$ and $D_{\\rm DDO101} \\sim 12$ Mpc, consistent with current uncertainties, we are able to fit both galaxies very well. We conclude that $Λ$CDM appears to give an excellent match to dwarf galaxy rotation curves."
+  },
+  {
+    "subtema": "evidencias_observacionais",
+    "titulo": "The radial dependence of dark matter distribution in M33",
+    "autores": "Ernesto López Fune, Paolo Salucci, Edvige Corbelli",
+    "publicado": "2016-11-04T15:10:05Z",
+    "arquivo": "..\\data\\1611.01409v3.pdf",
+    "resumo": "The stellar and gaseous mass distributions, as well as the extended rotation curve in the nearby galaxy M33 are used to derive the radial distribution of dark matter density in the halo and to test cosmological models of galaxy formation and evolution. Two methods are examined to constrain dark mass density profiles. The first method deals directly with fitting the rotation curve data in the range of galactocentric distances $0.24\\,\\text{kpc}\\leq r\\leq22.72\\,\\text{kpc}.$ As found in a previous paper by \\citet{Corbelli:2014lga}, and using the results of collisionless $Λ-$Cold Dark Matter numerical simulations, we confirm that the Navarro-Frenkel-White (hereafter NFW) dark matter profile provides a better fit to the rotation curve data than the cored Burkert profile (hereafter BRK) profile. The second method relies on the local equation of centrifugal equilibrium and on the rotation curve slope. In the aforementioned range of distances we fit the observed velocity profile, using a function which has a rational dependence on the radius, and derive the slope of the rotation curve. Following \\citet{Salucci:2010qr} we then infer the effective matter densities. In the radial range $9.53\\,\\text{kpc}\\leq r\\leq22.72\\,\\text{kpc}$ the uncertainties induced by the luminous matter (stars and gas) becomes negligible, because the dark matter density dominates, and we can determine locally the radial distribution of dark matter. With this second method we tested the NFW and the BRK dark matter profiles and confirm that both profiles are compatible with the data even though in this case the cored BRK density profile provides a more reasonable value for the baryonic-to-dark matter ratio."
+  },
+  {
+    "subtema": "evidencias_observacionais",
+    "titulo": "Dark Matter Annihilations in the Large Magellanic Cloud",
+    "autores": "P Gondolo",
+    "publicado": "1993-12-06T16:49:32Z",
+    "arquivo": "..\\data\\astro-ph_9312011v1.pdf",
+    "resumo": "The flat rotation curve obtained for the outer star clusters of the Large Magellanic Cloud is suggestive of an LMC dark matter halo. From the composite HI and star cluster rotation curve, I estimate the parameters of an isothermal dark matter halo added to a `maximum disk.' I then examine the possibility of detecting high energy gamma-rays from non-baryonic dark matter annihilations in the central region of the Large Magellanic Cloud."
+  },
+  {
+    "subtema": "wimp_candidatos_particulas",
+    "titulo": "Gamma-rays From Warm WIMP Dark Matter Annihilation",
+    "autores": "Qiang Yuan, Yixian Cao, Jie Liu, Peng-Fei Yin, Liang Gao, Xiao-Jun Bi, Xinmin Zhang",
+    "publicado": "2012-03-26T11:32:54Z",
+    "arquivo": "..\\data\\1203.5636v3.pdf",
+    "resumo": "The weakly interacting massive particle (WIMP) often serves as a candidate for the cold dark matter, however when produced non-thermally it could behave like warm dark matter. In this paper we study the properties of the $γ$-ray emission from annihilation of WIMP dark matter in the halo of our own Milky-Way Galaxy with high resolution $N$-body simulations of a Milky-Way like dark matter halo, assuming different nature of WIMPs. Due to the large free-streaming length in the scenario of warm WIMPs, the substructure contend of the dark matter halo is significantly different from that of the cold WIMP counterpart, resulting in distinct predictions of the $γ$-ray signals from the dark matter annihilation. We illustrate these by comparing the predicted $γ$-ray signals from the warm WIMP annihilation to that of cold WIMPs. Pronounced differences from the subhalo skymap and statistical properties between two WIMP models are demonstrated. Due to the potentially enhanced cross section of the non-thermal production mechanism in warm WIMP scenario, the Galactic center might be prior for the indirect detection of warm WIMPs to dwarf galaxies, which might be different from the cold dark matter scenario. As a specific example we consider the non-thermally produced neutralino of supersymmetric model and discuss the detectability of warm WIMPs with Fermi $γ$-ray telescope."
+  },
+  {
+    "subtema": "wimp_candidatos_particulas",
+    "titulo": "A review on the discovery reach of Dark Matter directional detection",
+    "autores": "F. Mayet, J. Billard",
+    "publicado": "2013-10-01T09:44:35Z",
+    "arquivo": "..\\data\\1310.0214v1.pdf",
+    "resumo": "Directional detection of galactic Dark Matter offers a unique opportunity to identify Weakly Interacting Massive Particle (WIMP) events as such. Depending on the unknown WIMP-nucleon cross section, directional detection may be used to : exclude Dark Matter, discover galactic Dark Matter with a high significance or constrain WIMP and halo properties. We review the discovery reach of Dark Matter directional detection."
+  },
+  {
+    "subtema": "wimp_candidatos_particulas",
+    "titulo": "Precise WIMP Dark Matter Abundance and Standard Model Thermodynamics",
+    "autores": "Ken'ichi Saikawa, Satoshi Shirai",
+    "publicado": "2020-05-07T15:13:00Z",
+    "arquivo": "..\\data\\2005.03544v2.pdf",
+    "resumo": "A weakly interacting massive particle (WIMP) is a leading candidate of the dark matter. The WIMP dark matter abundance is determined by the freeze-out mechanism. Once we know the property of the WIMP particle such as the mass and interaction, we can predict the dark matter abundance. There are, however, several uncertainties in the estimation of the WIMP dark matter abundance. In this work, we focus on the effect from Standard Model thermodynamics. We revisit the estimation of the WIMP dark matter abundance and its uncertainty due to the equation of state (EOS) in the Standard Model. We adopt the up-to-date estimate of the EOS of the Standard Model in the early Universe and find nearly 10% difference in the 1-1000 GeV dark matter abundance, compared to the conventional estimate of the EOS."
+  },
+  {
+    "subtema": "wimp_candidatos_particulas",
+    "titulo": "New Signatures and Sources for the Detection of WIMP Dark Matter in the Solar System",
+    "autores": "Lawrence M. Krauss",
+    "publicado": "1998-07-14T22:54:22Z",
+    "arquivo": "..\\data\\astro-ph_9807146v1.pdf",
+    "resumo": "I first outline new results on the angular modulation of WIMP dark matter scattering on targets in terrestrial laboratories, based on our uncertainties of the WIMP halo distribution, I then outline an exciting new result which indicates that for the high end of allowed SUSY WIMP scattering cross sections there exists a new distribution of WIMP dark matter in our solar system which could produce a dramatically different signal from halo WIMP dark matter in terrestrial detectors."
+  },
+  {
+    "subtema": "cdm_vs_wdm",
+    "titulo": "Self-interacting Warm Dark Matter",
+    "autores": "Steen Hannestad, Robert J. Scherrer",
+    "publicado": "2000-03-03T17:42:12Z",
+    "arquivo": "..\\data\\astro-ph_0003046v2.pdf",
+    "resumo": "It has been shown by many independent studies that the cold dark matter scenario produces singular galactic dark halos, in strong contrast with observations. Possible remedies are that either the dark matter is warm so that it has significant thermal motion or that the dark matter has strong self interactions. We have combined these ideas to calculate the linear mass power spectrum and the spectrum of cosmic microwave background (CMB) fluctuations for self-interacting warm dark matter. Our results indicate that such models have more power on small scales than is the case for the standard warm dark matter model, with a CMB fluctuation spectrum which is nearly indistinguishable from standard cold dark matter. This enhanced small-scale power may provide better agreement with the observations than does standard warm dark matter."
+  },
+  {
+    "subtema": "cdm_vs_wdm",
+    "titulo": "Understanding the Formation of Galaxies with Warm Dark Matter",
+    "autores": "Bruce Hoeneisen",
+    "publicado": "2023-10-10T14:13:12Z",
+    "arquivo": "..\\data\\2310.06882v1.pdf",
+    "resumo": "The formation of galaxies with warm dark matter is approximately adiabatic. The cold dark matter limit is singular and requires relaxation. In these lecture notes we develop, step-by-step, the physics of galaxies with warm dark matter, and their formation. The theory is validated with observed spiral galaxy rotation curves. These observations constrain the properties of the dark matter particles."
+  },
+  {
+    "subtema": "cdm_vs_wdm",
+    "titulo": "Microwave Background Anisotropy and Large Scale Structure in Warm Dark Matter Models",
+    "autores": "Stephen D. Burns",
+    "publicado": "1997-11-25T20:24:55Z",
+    "arquivo": "..\\data\\astro-ph_9711304v1.pdf",
+    "resumo": "Large scale structure and microwave background anisotropies are studied for warm dark matter models. Two warm dark matter candidates are considered: gravitinos and sterile neutrinos. Linear large scale structure properties such as $σ_{8}$ and the excess power are calculated, as well as microwave background anisotropies. A rather robust feature of warm dark matter models is that the large scale structure properties are similar to those of mixed dark matter, but that the microwave background anisotropy is very similar to that of standard cold dark matter."
+  },
+  {
+    "subtema": "cdm_vs_wdm",
+    "titulo": "JWST high-z galaxy constraints on warm and cold dark matter models",
+    "autores": "Umberto Maio, Matteo Viel",
+    "publicado": "2022-11-07T15:12:06Z",
+    "arquivo": "..\\data\\2211.03620v3.pdf",
+    "resumo": "We compare properties of high-redshift galaxies observed by JWST with hydrodynamical simulations, in the standard cold dark matter model and in warm dark matter models with a suppressed linear matter power spectrum. We find that current data are not in tension with cold dark matter nor with warm dark matter models with mWDM > 2 keV, since they probe bright and rare objects whose physical properties are similar in the different scenarios. We also show how two observables, the galaxy luminosity functions and the galaxy correlation function at small scales of faint objects, can be promising tools for discriminating between the different dark matter models. Further hints may come from early stellar-mass statistics and galaxy CO emission."
+  },
+  {
+    "subtema": "deteccao_experimentos",
+    "titulo": "Dark Matter Direct Detection in $t$-channel mediator models",
+    "autores": "Giorgio Arcadi, David Cabo-Almeida, Federico Mescia, Javier Virto",
+    "publicado": "2023-09-14T17:44:12Z",
+    "arquivo": "..\\data\\2309.07896v2.pdf",
+    "resumo": "We perform a comprehensive study of the Direct Detection phenomenology of singlet Dark Matter $t$-channel portal models. For that purpose, we present a complete one-loop matching onto a Heavy Dark-Matter Effective Field Theory, leading to a complete computation of the loop induced direct detection cross-section for both scalar and fermionic Dark Matter candidates. The results are compared with current and future bounds from Direct Detection experiments, as well as with the requirement of the correct Dark Matter relic density."
+  },
+  {
+    "subtema": "deteccao_experimentos",
+    "titulo": "Direct Detection Signals from Absorption of Fermionic Dark Matter",
+    "autores": "Jeff A. Dror, Gilly Elor, Robert McGehee",
+    "publicado": "2019-05-29T18:00:01Z",
+    "arquivo": "..\\data\\1905.12635v2.pdf",
+    "resumo": "We present a new class of direct detection signals; absorption of fermionic dark matter. We enumerate the operators through dimension six which lead to fermionic absorption, study their direct detection prospects, and summarize additional constraints on their suppression scale. Such dark matter is inherently unstable as there is no symmetry which prevents dark matter decays. Nevertheless, we show that fermionic dark matter absorption can be observed in direct detection and neutrino experiments while ensuring consistency with the observed dark matter abundance and required lifetime. For dark matter masses well below the GeV scale, dedicated searches for these signals at current and future experiments can probe orders of magnitude of unexplored parameter space."
+  },
+  {
+    "subtema": "deteccao_experimentos",
+    "titulo": "Exploring $t$-Channel Models for Dark Matter",
+    "autores": "David Cabo-Almeida",
+    "publicado": "2024-05-15T13:26:26Z",
+    "arquivo": "..\\data\\2405.09326v1.pdf",
+    "resumo": "We report on a comprehensive study of the Direct Detection phenomenology of singlet Dark Matter $t$-channel portal models. For that purpose, we present a complete computation of the loop-induced direct detection cross-section for both scalar and fermionic Dark Matter candidates. We complete the study by comparing the results with current and future bounds from Direct Detection experiments and requiring the correct Dark Matter relic density."
+  },
+  {
+    "subtema": "deteccao_experimentos",
+    "titulo": "Fermion Portal Dark Matter",
+    "autores": "Yang Bai, Joshua Berger",
+    "publicado": "2013-08-02T20:16:51Z",
+    "arquivo": "..\\data\\1308.0612v3.pdf",
+    "resumo": "We study a class of simplified dark matter models in which one dark matter particle couples with a mediator and a Standard Model fermion. In such models, collider and direct detection searches probe complimentary regions of parameter space. For Majorana dark matter, direct detection covers the region near mediator-dark matter degeneracy, while colliders probe regions with a large dark matter and mediator mass splitting. For Dirac and complex dark matter, direct detection is effective for the entire region above the mass threshold, but colliders provide a strong bound for dark matter lighter than a few GeV. We also point out that dedicated searches for signatures with two jets or a mono-jet not coming from initial state radiation, along missing transverse energy can cover the remaining parameter space for thermal relic dark matter."
+  },
+  {
+    "subtema": "reviews_gerais",
+    "titulo": "Review of Dark Matter",
+    "autores": "Leonard S. Kisslinger, Debasish Das",
+    "publicado": "2019-08-01T20:24:56Z",
+    "arquivo": "..\\data\\1908.00612v1.pdf",
+    "resumo": "In this review of Dark Matter we review dark matter as sterile neutrinos, fermions, with their present and possibly future detection via neutrino Oscillations. We review the creation of Dark Matter via interactions with the Dark Energy (quintesence) field. We also review bosons as dark matter, discussing a proposed search for dark photons. Since photons are vector bosons, if dark photons exist at least part of dark matter are vector bosons. Ongoing experimental detection of Dark Matter is reviewed."
+  },
+  {
+    "subtema": "reviews_gerais",
+    "titulo": "The Nature of the Dark Matter",
+    "autores": "Kim Griest",
+    "publicado": "1995-10-18T01:05:14Z",
+    "arquivo": "..\\data\\astro-ph_9510089v1.pdf",
+    "resumo": "We review some recent determinations of the amount of dark matter on galactic and larger scales, with special attention to the dark matter in the Milky Way. We then briefly review the motivation for and basic physics of several dark matter candidates, and then go into more depth for two candidates, the neutralino from supersymmetry, and the baryonic Macho candidate. We give some motivation for supersymmetry and review neutralino detection strategies. For Machos we give a description of the discovery of Machos via gravitational microlensing and the interpretation of the results with respect to the dark matter problem."
+  },
+  {
+    "subtema": "reviews_gerais",
+    "titulo": "The Particle- and Astro-Physics of Dark Matter",
+    "autores": "Kim Griest",
+    "publicado": "1994-11-09T19:27:33Z",
+    "arquivo": "..\\data\\astro-ph_9411038v1.pdf",
+    "resumo": "We review some recent determinations of the amount of dark matter on galactic, cluster, and large scales, noting some puzzles and their possible resolutions. We discuss the interpretation of big bang nucleosynthesis for dark matter, and then review the motivation for and basic physics of several dark matter candidates, including Machos, Wimps, axions, and neutrinos. Finally, we discuss how the uncertainty in the models of the Milky Way dark halo will affect the dark matter detection experiments."
+  },
+  {
+    "subtema": "reviews_gerais",
+    "titulo": "Dark Matter Detection in Space",
+    "autores": "Jonathan L. Feng",
+    "publicado": "2004-05-24T22:10:09Z",
+    "arquivo": "..\\data\\astro-ph_0405479v1.pdf",
+    "resumo": "I review prospects for detecting dark matter in space-based experiments, with an emphasis on recent developments. I propose the ``Martha Stewart criterion'' for identifying dark matter candidates that are particularly worth investigation and focus on three that satisfy it: neutralino dark matter, Kaluza-Klein dark matter, and superWIMP gravitino dark matter."
+  }
+]
