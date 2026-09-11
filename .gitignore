@@ -184,8 +184,5 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Data (ignore all files in data/raw and data/processed except tracked files)
 data/raw/
 data/processed/
-!data/raw/.gitkeep
-!data/processed/.gitkeep
