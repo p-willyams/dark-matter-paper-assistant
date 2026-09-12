@@ -1,4 +1,6 @@
+# %%
 import os
+import json
 import uuid
 from docling.document_converter import DocumentConverter
 from docling.chunking import HybridChunker
@@ -11,14 +13,12 @@ dotenv.load_dotenv()
 import qdrant_client
 from qdrant_client import models
 
-
 QDRANT_CLUSTER_URL = os.getenv("QDRANT_CLUSTER_URL")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 
 DENSE_MODEL = "BAAI/bge-base-en-v1.5"
 SPARSE_MODEL = "Qdrant/BM25"
 COLBERT_MODEL = "colbert-ir/colbertv2.0"
-
 
 client = qdrant_client.QdrantClient(api_key=QDRANT_API_KEY, url=QDRANT_CLUSTER_URL)
 
@@ -41,7 +41,39 @@ if "DarkRag" not in collections:
     )
 
 
-def doc_to_vectordb(path):
+def load_metadata_index(index_path):
+    with open(index_path, "r", encoding="utf-8") as f:
+        records = json.load(f)
+
+    index = {}
+    for r in records:
+        file_name = os.path.basename(r["arquivo"])
+        index[file_name] = {
+            "title": r.get("titulo"),
+            "authors": r.get("autores"),
+            "year": r.get("publicado", "")[:4],
+            "subtopic": r.get("subtema"),
+        }
+    return index
+
+
+def extract_pages(chunk):
+    pages = set()
+    for item in getattr(chunk.meta, "doc_items", []) or []:
+        for prov in getattr(item, "prov", []) or []:
+            page = getattr(prov, "page_no", None)
+            if page is not None:
+                pages.add(page)
+    return sorted(pages)
+
+
+def doc_to_vectordb(path, metadata_index):
+    file_name = os.path.basename(path)
+    article_metadata = metadata_index.get(file_name, {})
+
+    if not article_metadata:
+        print(f"  ⚠ No metadata found in the index for {file_name}")
+
     doc_converter = DocumentConverter()
     doc = doc_converter.convert(path)
 
@@ -66,10 +98,10 @@ def doc_to_vectordb(path):
             continue
 
         dense_vector = list(dense_embedding.passage_embed(c.text))[0].tolist()
-
         sparse_vector = list(sparse_embedding.passage_embed(c.text))[0].as_object()
-
         colbert_vector = list(colbert_embedding.passage_embed(c.text))[0].tolist()
+
+        pages = extract_pages(c)
 
         point = models.PointStruct(
             id=str(uuid.uuid4()),
@@ -79,8 +111,15 @@ def doc_to_vectordb(path):
                 "colbert": colbert_vector,
             },
             payload={
-                "metadata": {"file_name": c.meta.origin.filename},
                 "text": c.text,
+                "metadata": {
+                    "file_name": file_name,
+                    "title": article_metadata.get("title"),
+                    "authors": article_metadata.get("authors"),
+                    "year": article_metadata.get("year"),
+                    "subtopic": article_metadata.get("subtopic"),
+                    "pages": pages,
+                },
             },
         )
 
@@ -94,7 +133,6 @@ def doc_to_vectordb(path):
                 parallel=1,
                 max_retries=3,
             )
-
             points = []
 
     if points:
@@ -106,13 +144,19 @@ def doc_to_vectordb(path):
             max_retries=3,
         )
 
-    print("Upload concluído!")
+    print("Upload completed!")
 
 
-data_dir = os.path.join("..", "data", "processed")
+data_dir = os.path.join("../data")
+index_path = os.path.join(data_dir, "_indice.json")
+
+metadata_index = load_metadata_index(index_path)
+
 file_list = [
-    os.path.join(data_dir, f) for f in os.listdir(data_dir) if f.endswith(".txt")
+    os.path.join(data_dir, f) for f in os.listdir(data_dir) if f.endswith(".pdf")
 ]
 
 for file_path in tqdm(file_list):
-    doc_to_vectordb(file_path)
+    doc_to_vectordb(file_path, metadata_index)
+
+# %%
