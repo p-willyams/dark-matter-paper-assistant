@@ -16,7 +16,8 @@ Dada uma pergunta como *"Quais evidências sustentam a existência da matéria e
 4. Retorna uma resposta com citações inline (título, autores, ano e página) e uma seção de referências
 5. Identifica qualquer citação presente na resposta que não corresponda a uma fonte real encontrada no contexto recuperado
 
-> <img width="1915" height="954" alt="image" src="https://github.com/user-attachments/assets/cd8d9a2d-7a7e-4b47-9031-9fdbc2b450de" />
+> <img width="1912" height="949" alt="image" src="https://github.com/user-attachments/assets/9035583c-231d-4078-838d-8e0614f8dcd6" />
+
 
 
 ## Como foi construído
