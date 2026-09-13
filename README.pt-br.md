@@ -1,4 +1,4 @@
-# DarkRag
+<img width="1920" height="1080" alt="dark-assistant" src="https://github.com/user-attachments/assets/61cc3296-1eda-4a9e-91e9-edad57d4d2e0" />
 
 *Leia em [English](README.md).*
 
