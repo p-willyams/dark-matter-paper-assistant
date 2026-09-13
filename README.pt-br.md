@@ -16,7 +16,8 @@ Dada uma pergunta como *"Quais evidências sustentam a existência da matéria e
 4. Retorna uma resposta com citações inline (título, autores, ano e página) e uma seção de referências
 5. Identifica qualquer citação presente na resposta que não corresponda a uma fonte real encontrada no contexto recuperado
 
-> **📸 Adicione aqui uma captura de tela** mostrando a interface de chat do Streamlit com uma pergunta feita e uma resposta retornada com citações.
+> <img width="1915" height="954" alt="image" src="https://github.com/user-attachments/assets/cd8d9a2d-7a7e-4b47-9031-9fdbc2b450de" />
+
 
 ## Como foi construído
 
@@ -55,7 +56,8 @@ O DarkRag aborda esses dois problemas com:
 * Perguntas fora do escopo — por exemplo, perguntas sobre assuntos não relacionados — são detectadas e rejeitadas antes de uma chamada de recuperação e geração
 * Citações que não possuem correspondência no contexto recuperado são sinalizadas na resposta, em vez de serem apresentadas silenciosamente como fatos
 
-> **📸 Adicione aqui uma captura de tela ou um pequeno vídeo** mostrando uma pergunta fora do escopo sendo corretamente rejeitada (por exemplo, uma pergunta sobre um assunto não relacionado).
+> <img width="1915" height="954" alt="image" src="https://github.com/user-attachments/assets/fbe531d9-c612-4a3a-9d06-0ff6c5468e06" />
+
 
 ## Estrutura do projeto
 
