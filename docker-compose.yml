@@ -2,7 +2,7 @@ services:
   backend:
     build:
       context: .
-      dockerfile: Dockerfile.backend
+      dockerfile: src/backend/Dockerfile
     container_name: darkrag-backend
     ports:
       - "8000:8000"
@@ -13,7 +13,7 @@ services:
   frontend:
     build:
       context: .
-      dockerfile: Dockerfile.frontend
+      dockerfile: src/frontend/Dockerfile
     container_name: darkrag-frontend
     ports:
       - "8501:8501"

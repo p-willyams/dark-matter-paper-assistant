@@ -1,29 +1,13 @@
-"""
-Script para buscar e baixar artigos sobre matéria escura do arXiv.
-
-Requisitos:
-    pip install requests feedparser
-
-Uso:
-    python baixar_artigos_materia_escura.py
-
-O script busca artigos em diferentes subtemas de matéria escura para
-garantir diversidade de conteúdo no seu projeto de RAG, e baixa os PDFs
-para a pasta ../data/raw/
-"""
-
 import os
 import time
 import feedparser
 import requests
 
-# Pasta onde os PDFs serão salvos
-PASTA_SAIDA = os.path.join("..", "data", "raw")
+PASTA_SAIDA = os.path.join("..", "data")
 os.makedirs(PASTA_SAIDA, exist_ok=True)
 
 BASE_URL = "https://export.arxiv.org/api/query"
 
-# Buscas organizadas por subtema, cada uma com uma quantidade alvo de artigos.
 BUSCAS = [
     {
         "nome": "evidencias_observacionais",
@@ -54,12 +38,11 @@ BUSCAS = [
 
 
 def buscar_artigos(query, quantidade, ordenar_por="relevance"):
-    """Consulta a API do arXiv e retorna uma lista de entradas (metadados)."""
     params = {
         "search_query": query,
         "start": 0,
         "max_results": quantidade,
-        "sortBy": ordenar_por,  # relevance ou submittedDate
+        "sortBy": ordenar_por,
         "sortOrder": "descending",
     }
     resposta = requests.get(BASE_URL, params=params, timeout=30)
@@ -69,7 +52,6 @@ def buscar_artigos(query, quantidade, ordenar_por="relevance"):
 
 
 def baixar_pdf(entry, pasta_destino):
-    """Baixa o PDF de uma entrada do arXiv."""
     arxiv_id = entry.id.split("/abs/")[-1]
     pdf_url = entry.id.replace("/abs/", "/pdf/")
     if not pdf_url.endswith(".pdf"):
@@ -117,11 +99,10 @@ def main():
                     }
                 )
                 total_baixado += 1
-                time.sleep(1)  # respeita o rate limit do arXiv
+                time.sleep(1)
             except Exception as e:
                 print(f"  [erro] Falha ao baixar artigo: {e}")
 
-    # Salva um índice com metadados de tudo que foi baixado.
     import json
 
     with open(os.path.join(PASTA_SAIDA, "_indice.json"), "w", encoding="utf-8") as f:
