@@ -85,7 +85,6 @@ CITATION_PATTERN = re.compile(r"\(([^()]*?,\s*[^()]*?,\s*(19|20)\d{2}[^()]*?)\)"
 
 
 def extract_citations(answer_text):
-
     return [m.group(1) for m in CITATION_PATTERN.finditer(answer_text)]
 
 

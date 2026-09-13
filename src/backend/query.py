@@ -2,16 +2,21 @@ import os
 from fastembed import TextEmbedding, SparseTextEmbedding, LateInteractionTextEmbedding
 import dotenv
 
-dotenv.load_dotenv()
+dotenv_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.env"))
+dotenv.load_dotenv(dotenv_path)
+
 import qdrant_client
 from qdrant_client import models
 from openai import OpenAI
 
-from guardrails import SCOPE_DESCRIPTION, is_question_in_scope, check_citations
+from .guardrails import SCOPE_DESCRIPTION, is_question_in_scope, check_citations
 
 QDRANT_CLUSTER_URL = os.getenv("QDRANT_CLUSTER_URL")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
+GROQ_BASE_URL = os.environ.get("GROQ_BASE_URL")
+LLM_MODEL = os.environ.get("LLM_MODEL")
+QDRANT_COLLECTION_NAME = os.environ.get("QDRANT_COLLECTION_NAME")
 
 DENSE_MODEL = "BAAI/bge-base-en-v1.5"
 SPARSE_MODEL = "Qdrant/BM25"
@@ -22,7 +27,7 @@ client_qdrant = qdrant_client.QdrantClient(
 )
 client_openai = OpenAI(
     api_key=GROQ_API_KEY,
-    base_url="https://api.groq.com/openai/v1",
+    base_url=GROQ_BASE_URL,
 )
 
 dense_embedding = TextEmbedding(DENSE_MODEL)
@@ -119,21 +124,8 @@ of guessing.
 
 
 def answer_question(
-    query: str, model: str = "openai/gpt-oss-20b", collection_name: str = "DarkRag"
+    query: str, model: str = LLM_MODEL, collection_name: str = QDRANT_COLLECTION_NAME
 ):
-    """
-    Process a question and return the answer, suspicious citations, and optionally context.
-    Useful for API usage.
-
-    Returns:
-        dict: {
-            "answer": ...,
-            "suspicious_citations": [...],
-            "context": ...,
-            "status": "ok" or "out_of_scope",
-            "error": ... (optional)
-        }
-    """
     try:
         if not is_question_in_scope(query, client_openai, model=model):
             return {
@@ -216,5 +208,3 @@ if __name__ == "__main__":
             for c in result["suspicious_citations"]:
                 print(f"  - ({c})")
         print("\n" + "=" * 40 + "\n")
-
-# %%
