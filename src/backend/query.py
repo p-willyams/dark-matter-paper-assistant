@@ -14,6 +14,9 @@ from .guardrails import SCOPE_DESCRIPTION, is_question_in_scope, check_citations
 QDRANT_CLUSTER_URL = os.getenv("QDRANT_CLUSTER_URL")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
+GROQ_BASE_URL = os.environ.get("GROQ_BASE_URL")
+LLM_MODEL = os.environ.get("LLM_MODEL")
+QDRANT_COLLECTION_NAME = os.environ.get("QDRANT_COLLECTION_NAME")
 
 DENSE_MODEL = "BAAI/bge-base-en-v1.5"
 SPARSE_MODEL = "Qdrant/BM25"
@@ -24,7 +27,7 @@ client_qdrant = qdrant_client.QdrantClient(
 )
 client_openai = OpenAI(
     api_key=GROQ_API_KEY,
-    base_url="https://api.groq.com/openai/v1",
+    base_url=GROQ_BASE_URL,
 )
 
 dense_embedding = TextEmbedding(DENSE_MODEL)
@@ -121,7 +124,7 @@ of guessing.
 
 
 def answer_question(
-    query: str, model: str = "openai/gpt-oss-20b", collection_name: str = "DarkRag"
+    query: str, model: str = LLM_MODEL, collection_name: str = QDRANT_COLLECTION_NAME
 ):
     try:
         if not is_question_in_scope(query, client_openai, model=model):

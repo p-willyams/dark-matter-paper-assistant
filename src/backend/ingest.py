@@ -14,6 +14,7 @@ from qdrant_client import models
 
 QDRANT_CLUSTER_URL = os.getenv("QDRANT_CLUSTER_URL")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
+QDRANT_COLLECTION_NAME = os.environ.get("QDRANT_COLLECTION_NAME")
 
 DENSE_MODEL = "BAAI/bge-base-en-v1.5"
 SPARSE_MODEL = "Qdrant/BM25"
@@ -23,9 +24,9 @@ client = qdrant_client.QdrantClient(api_key=QDRANT_API_KEY, url=QDRANT_CLUSTER_U
 
 collections = [c.name for c in client.get_collections().collections]
 
-if "DarkRag" not in collections:
+if QDRANT_COLLECTION_NAME not in collections:
     client.create_collection(
-        collection_name="DarkRag",
+        collection_name=QDRANT_COLLECTION_NAME,
         vectors_config={
             "dense": models.VectorParams(size=768, distance=models.Distance.COSINE),
             "colbert": models.VectorParams(
@@ -126,7 +127,7 @@ def doc_to_vectordb(path, metadata_index):
 
         if len(points) >= 32:
             client.upload_points(
-                collection_name="DarkRag",
+                collection_name=QDRANT_COLLECTION_NAME,
                 points=points,
                 batch_size=5,
                 parallel=1,
@@ -136,7 +137,7 @@ def doc_to_vectordb(path, metadata_index):
 
     if points:
         client.upload_points(
-            collection_name="DarkRag",
+            collection_name=QDRANT_COLLECTION_NAME,
             points=points,
             batch_size=5,
             parallel=1,
@@ -157,5 +158,3 @@ file_list = [
 
 for file_path in tqdm(file_list):
     doc_to_vectordb(file_path, metadata_index)
-
-# %%
