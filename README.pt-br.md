@@ -57,7 +57,8 @@ O DarkRag aborda esses dois problemas com:
 * Perguntas fora do escopo — por exemplo, perguntas sobre assuntos não relacionados — são detectadas e rejeitadas antes de uma chamada de recuperação e geração
 * Citações que não possuem correspondência no contexto recuperado são sinalizadas na resposta, em vez de serem apresentadas silenciosamente como fatos
 
-> <img width="1915" height="954" alt="image" src="https://github.com/user-attachments/assets/fbe531d9-c612-4a3a-9d06-0ff6c5468e06" />
+> <img width="1282" height="871" alt="image" src="https://github.com/user-attachments/assets/6ba0f6db-bdc9-4904-8522-1a3ad45a9357" />
+
 
 
 ## Estrutura do projeto
