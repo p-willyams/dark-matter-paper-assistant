@@ -1,5 +1,3 @@
-# %%
-
 import os
 from fastembed import TextEmbedding, SparseTextEmbedding, LateInteractionTextEmbedding
 import dotenv
@@ -10,7 +8,6 @@ from qdrant_client import models
 from openai import OpenAI
 
 from guardrails import SCOPE_DESCRIPTION, is_question_in_scope, check_citations
-
 
 QDRANT_CLUSTER_URL = os.getenv("QDRANT_CLUSTER_URL")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
@@ -120,67 +117,104 @@ If metadata is missing, preserve the missing field exactly as provided instead
 of guessing.
 """
 
-while True:
-    query = input("Enter your question: ")
 
-    if not is_question_in_scope(query, client_openai, model="openai/gpt-oss-20b"):
-        print("\n" + "=" * 40 + "\n")
-        print(
-            "This question appears to be outside the scope of this system, which "
-            f"answers only about {SCOPE_DESCRIPTION}. "
-            "Please try to rephrase your question within this topic."
-        )
-        print("\n" + "=" * 40 + "\n")
-        continue
-
-    dense_query = list(dense_embedding.passage_embed(query))[0].tolist()
-    sparse_query = list(sparse_embedding.passage_embed(query))[0].as_object()
-    colbert_query = list(colbert_embedding.passage_embed(query))[0].tolist()
-
-    results = client_qdrant.query_points(
-        collection_name="DarkRag",
-        prefetch={
-            "prefetch": [
-                {"query": dense_query, "using": "dense", "limit": 20},
-                {"query": sparse_query, "using": "sparse", "limit": 20},
-            ],
-            "query": models.FusionQuery(fusion=models.Fusion.RRF),
-            "limit": 20,
-        },
-        query=colbert_query,
-        using="colbert",
-        limit=3,
-    )
-
-    context = build_context(results)
-    valid_titles = [
-        r.payload.get("metadata", {}).get("title") or "" for r in results.points
-    ]
-
-    user_prompt = f"""
-    Context:
-    {context}
-
-    Question:
-    {query}
+def answer_question(
+    query: str, model: str = "openai/gpt-oss-20b", collection_name: str = "DarkRag"
+):
     """
+    Process a question and return the answer, suspicious citations, and optionally context.
+    Useful for API usage.
 
-    response = client_openai.responses.create(
-        model="openai/gpt-oss-20b",
-        instructions=SYSTEM_PROMPT,
-        input=user_prompt,
-    )
+    Returns:
+        dict: {
+            "answer": ...,
+            "suspicious_citations": [...],
+            "context": ...,
+            "status": "ok" or "out_of_scope",
+            "error": ... (optional)
+        }
+    """
+    try:
+        if not is_question_in_scope(query, client_openai, model=model):
+            return {
+                "answer": (
+                    "This question appears to be outside the scope of this system, which "
+                    f"answers only about {SCOPE_DESCRIPTION}. "
+                    "Please try to rephrase your question within this topic."
+                ),
+                "suspicious_citations": [],
+                "context": None,
+                "status": "out_of_scope",
+            }
 
-    answer_text = response.output_text
+        dense_query = list(dense_embedding.passage_embed(query))[0].tolist()
+        sparse_query = list(sparse_embedding.passage_embed(query))[0].as_object()
+        colbert_query = list(colbert_embedding.passage_embed(query))[0].tolist()
 
-    suspicious_citations = check_citations(answer_text, valid_titles)
+        results = client_qdrant.query_points(
+            collection_name=collection_name,
+            prefetch={
+                "prefetch": [
+                    {"query": dense_query, "using": "dense", "limit": 20},
+                    {"query": sparse_query, "using": "sparse", "limit": 20},
+                ],
+                "query": models.FusionQuery(fusion=models.Fusion.RRF),
+                "limit": 20,
+            },
+            query=colbert_query,
+            using="colbert",
+            limit=3,
+        )
 
-    print("\n" + "=" * 40 + "\n")
-    print(answer_text)
+        context = build_context(results)
+        valid_titles = [
+            r.payload.get("metadata", {}).get("title") or "" for r in results.points
+        ]
 
-    if suspicious_citations:
-        print("\n⚠ Warning: possible citations not found in the original context:")
-        for c in suspicious_citations:
-            print(f"  - ({c})")
+        user_prompt = f"""
+        Context:
+        {context}
 
-    print("\n" + "=" * 40 + "\n")
+        Question:
+        {query}
+        """
+
+        response = client_openai.responses.create(
+            model=model,
+            instructions=SYSTEM_PROMPT,
+            input=user_prompt,
+        )
+
+        answer_text = response.output_text
+
+        suspicious_citations = check_citations(answer_text, valid_titles)
+
+        return {
+            "answer": answer_text,
+            "suspicious_citations": suspicious_citations,
+            "context": context,
+            "status": "ok",
+        }
+    except Exception as e:
+        return {
+            "answer": None,
+            "suspicious_citations": [],
+            "context": None,
+            "status": "error",
+            "error": str(e),
+        }
+
+
+if __name__ == "__main__":
+    while True:
+        query = input("Enter your question: ")
+        result = answer_question(query)
+        print("\n" + "=" * 40 + "\n")
+        print(result["answer"])
+        if result.get("suspicious_citations"):
+            print("\n⚠ Warning: possible citations not found in the original context:")
+            for c in result["suspicious_citations"]:
+                print(f"  - ({c})")
+        print("\n" + "=" * 40 + "\n")
+
+# %%
