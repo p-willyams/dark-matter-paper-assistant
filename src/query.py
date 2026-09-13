@@ -9,6 +9,9 @@ import qdrant_client
 from qdrant_client import models
 from openai import OpenAI
 
+from guardrails import SCOPE_DESCRIPTION, is_question_in_scope, check_citations
+
+
 QDRANT_CLUSTER_URL = os.getenv("QDRANT_CLUSTER_URL")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
@@ -120,6 +123,16 @@ of guessing.
 while True:
     query = input("Enter your question: ")
 
+    if not is_question_in_scope(query, client_openai, model="openai/gpt-oss-20b"):
+        print("\n" + "=" * 40 + "\n")
+        print(
+            "This question appears to be outside the scope of this system, which "
+            f"answers only about {SCOPE_DESCRIPTION}. "
+            "Please try to rephrase your question within this topic."
+        )
+        print("\n" + "=" * 40 + "\n")
+        continue
+
     dense_query = list(dense_embedding.passage_embed(query))[0].tolist()
     sparse_query = list(sparse_embedding.passage_embed(query))[0].as_object()
     colbert_query = list(colbert_embedding.passage_embed(query))[0].tolist()
@@ -140,6 +153,9 @@ while True:
     )
 
     context = build_context(results)
+    valid_titles = [
+        r.payload.get("metadata", {}).get("title") or "" for r in results.points
+    ]
 
     user_prompt = f"""
     Context:
@@ -155,6 +171,16 @@ while True:
         input=user_prompt,
     )
 
+    answer_text = response.output_text
+
+    suspicious_citations = check_citations(answer_text, valid_titles)
+
     print("\n" + "=" * 40 + "\n")
-    print(response.output_text)
+    print(answer_text)
+
+    if suspicious_citations:
+        print("\n⚠ Warning: possible citations not found in the original context:")
+        for c in suspicious_citations:
+            print(f"  - ({c})")
+
     print("\n" + "=" * 40 + "\n")
