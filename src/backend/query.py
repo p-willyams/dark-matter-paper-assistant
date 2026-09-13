@@ -2,12 +2,14 @@ import os
 from fastembed import TextEmbedding, SparseTextEmbedding, LateInteractionTextEmbedding
 import dotenv
 
-dotenv.load_dotenv()
+dotenv_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.env"))
+dotenv.load_dotenv(dotenv_path)
+
 import qdrant_client
 from qdrant_client import models
 from openai import OpenAI
 
-from guardrails import SCOPE_DESCRIPTION, is_question_in_scope, check_citations
+from .guardrails import SCOPE_DESCRIPTION, is_question_in_scope, check_citations
 
 QDRANT_CLUSTER_URL = os.getenv("QDRANT_CLUSTER_URL")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
@@ -121,19 +123,6 @@ of guessing.
 def answer_question(
     query: str, model: str = "openai/gpt-oss-20b", collection_name: str = "DarkRag"
 ):
-    """
-    Process a question and return the answer, suspicious citations, and optionally context.
-    Useful for API usage.
-
-    Returns:
-        dict: {
-            "answer": ...,
-            "suspicious_citations": [...],
-            "context": ...,
-            "status": "ok" or "out_of_scope",
-            "error": ... (optional)
-        }
-    """
     try:
         if not is_question_in_scope(query, client_openai, model=model):
             return {
@@ -216,5 +205,3 @@ if __name__ == "__main__":
             for c in result["suspicious_citations"]:
                 print(f"  - ({c})")
         print("\n" + "=" * 40 + "\n")
-
-# %%
