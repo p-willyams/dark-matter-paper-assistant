@@ -16,7 +16,8 @@ Given a question like *"What evidence supports the existence of dark matter?"*, 
 4. Returns an answer with inline citations (title, authors, year, page) and a references section
 5. Flags any citation in the answer that doesn't match a real source in the retrieved context
 
-> <img width="1912" height="949" alt="image" src="https://github.com/user-attachments/assets/0b5a2433-4f87-4711-b5af-2054dd3b04c1" />
+> <img width="1130" height="848" alt="image" src="https://github.com/user-attachments/assets/81bf346b-3743-483d-9fa6-33cae85ae005" />
+
 
 
 ## How it was built
@@ -49,7 +50,8 @@ Two failure modes are common in RAG systems: answering questions the dataset has
 - Out-of-scope questions (e.g., unrelated topics) are detected and rejected before wasting a retrieval/generation call
 - Citations not grounded in the retrieved context are flagged in the response rather than silently presented as fact
 
-> <img width="1915" height="954" alt="image" src="https://github.com/user-attachments/assets/3089e227-d13a-4069-a31a-218fd056f831" />
+> <img width="1066" height="843" alt="image" src="https://github.com/user-attachments/assets/8037183f-b7cd-436f-8042-adb10dc9663c" />
+
 
 
 ## Project structure
